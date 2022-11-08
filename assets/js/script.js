@@ -13,9 +13,10 @@ var inputEl = document.getElementById("input-name");
 var displayhighscoreEl = document.getElementById("display-highscore");
 var gobackBtn = document.getElementById("go-back");
 var clearscoreEl = document.getElementById("clear-score");
+var viewHighScoreEl = document.getElementById("view-highscore");
 
-var timeLeft = 40;
-currentQuestionIndex = 0;
+var timeLeft = 60;
+var currentQuestionIndex = 0;
 var highScore = {
   name: "",
   score: 0,
@@ -23,6 +24,7 @@ var highScore = {
 
 var finishAnswer = false;
 
+// function timer
 function setTime() {
   // sets interval in variable
   var timerInterval = setInterval(function () {
@@ -41,6 +43,16 @@ function setTime() {
     }
   }, 1000);
 }
+
+// view high score link
+
+viewHighScoreEl.addEventListener("click", function () {
+  mainEl.classList.add("hidden");
+  highscoreEl.classList.remove("hidden");
+  viewHighscore();
+});
+
+// clear high score in local storage
 clearscoreEl.addEventListener("click", function () {
   highScore = {
     name: "",
@@ -49,19 +61,22 @@ clearscoreEl.addEventListener("click", function () {
   localStorage.removeItem("highScore");
 });
 
+// go back button
 gobackBtn.addEventListener("click", function () {
   mainEl.classList.remove("hidden");
   highscoreEl.classList.add("hidden");
-  timeLeft = 40;
+  timeLeft = 60;
   timerEl.textContent = timeLeft;
   currentQuestionIndex = 0;
   finishAnswer = false;
 });
 
+// submit button
 submitBtn.addEventListener("click", function () {
   formDoneEl.classList.add("hidden");
   highscoreEl.classList.remove("hidden");
   console.log(highScore.score);
+
   if (highScore.score < timeLeft || highScore.score === 0) {
     highScore = {
       name: inputEl.value,
@@ -75,7 +90,19 @@ submitBtn.addEventListener("click", function () {
   console.log(highScore);
 });
 
+// function view high score
+function viewHighscore() {
+  var lastHighScore = JSON.parse(localStorage.getItem("highScore"));
+  if (lastHighScore !== null) {
+    highScore = lastHighScore;
+  }
+  displayhighscoreEl.textContent =
+    "Name: " + highScore.name + " " + highScore.score;
+}
+
+// when we click on start quiz button
 startBtn.addEventListener("click", function () {
+  // remove previous question
   while (listAnswersEl.firstChild) {
     listAnswersEl.removeChild(listAnswersEl.lastChild);
   }
@@ -84,16 +111,16 @@ startBtn.addEventListener("click", function () {
   questionSectionEl.classList.remove("hidden");
   showQuestion();
 
-  var lastGrade = JSON.parse(localStorage.getItem("highScore"));
-  if (lastGrade !== null) {
-    highScore = lastGrade;
-  }
+  // load previous high score
+  viewHighscore();
 
-  // while (listAnswersEl.firstChild) {
-  //   listAnswersEl.removeChild(listAnswersEl.lastChild);
+  // var lastHighScore = JSON.parse(localStorage.getItem("highScore"));
+  // if (lastHighScore !== null) {
+  //   highScore = lastHighScore;
   // }
 });
 
+// for show question
 function showQuestion() {
   row = 1;
 
@@ -114,7 +141,10 @@ function showQuestion() {
   });
 }
 
+// when we click on each answer
 document.addEventListener("click", function (e) {
+  // var createElementP = document.createElement("p");
+  // var lineElement = document.createElement("hr");
   if (e.target && e.target.classList == "btn-answer") {
     const selectedButton = e.target;
 
@@ -137,11 +167,13 @@ document.addEventListener("click", function (e) {
       }
     } else {
       timeLeft -= 10;
-      // if (timeLeft < 0) timeLeft = 0;
+      // questionSectionEl.appendChild(lineElement);
+      // questionSectionEl.appendChild(createElementP).textContent = "Wrong !";
     }
   }
 });
 
+// variable for store questions
 var questions = [
   {
     question: "What is 2 + 2 ?",
@@ -189,5 +221,3 @@ var questions = [
     ],
   },
 ];
-
-// showQuestion(questions);

@@ -12,6 +12,8 @@ body {
 
 header {
   display: flex;
+  /* width: 850px; */
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 90px;
   padding: 20px;
@@ -29,6 +31,7 @@ header a {
   line-height: 1.5;
   background-color: #b73dc7;
   color: white;
+  border-radius: 5px;
 }
 
 .main h1 {
@@ -54,7 +57,7 @@ header a {
   background-color: #aaa;
 }
 
-/* for hidden element */
+/* for hidden section */
 .hidden {
   display: none;
 }
@@ -79,4 +82,68 @@ header a {
 .btn-answer {
   margin-top: 8px;
   display: block;
+  border: none;
+  border-radius: 2px;
+  background-color: #aaa;
+  padding: 5px;
+}
+
+.btn-answer:hover {
+  background-color: #b73dc7;
+}
+
+.question-section {
+  width: 600px;
+  /* background-color: rgb(236, 232, 232); */
+  border-radius: 5px;
+}
+
+#form-done {
+  width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+#highscore-section {
+  width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+@media (max-width: 805px) {
+  .header {
+    width: 600px;
+  }
+  .main {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 620px) {
+  .header {
+    width: 400px;
+  }
+  .main {
+    max-width: 400px;
+  }
+
+  .main h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .main p {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .main button {
+    font-size: 16px;
+  }
+
+  #question-section,
+  #form-done,
+  #highscore-section {
+    width: 400px;
+  }
 }

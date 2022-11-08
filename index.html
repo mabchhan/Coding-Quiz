@@ -9,9 +9,11 @@
   </head>
   <body>
     <!-- header -->
-    <header id="header" class="header" data-state="">
-      <a href="#" id="view-highscore">View Highscore</a>
-      <div class="time-remain">Time : <span id="countdown">40</span></div>
+    <header id="header" class="header">
+      <a id="view-highscore">View Highscore</a>
+      <div class="time-remain">
+        Remaining Time : <span id="countdown">60</span>
+      </div>
     </header>
 
     <!-- main -->
@@ -26,13 +28,16 @@
         <button id="start-btn" class="start-btn">Start Quiz</button>
       </div>
     </div>
+
+    <!-- question section -->
     <div class="question-section">
       <p class="question-title"></p>
       <div class="list-answers"></div>
     </div>
 
+    <!-- finish question section -->
     <div id="form-done" class="hidden">
-      <p>All done!</p>
+      <h3>All done!</h3>
       <p id="score">Your final score:</p>
       <p>Enter Initial:</p>
       <div>
@@ -41,14 +46,16 @@
       </div>
     </div>
 
+    <!-- high score section -->
     <div id="highscore-section" class="hidden">
-      <p>High scores</p>
-      <p id="display-highscore">1. ab 22</p>
+      <p>High scores:</p>
+      <p id="display-highscore"></p>
       <div>
-        <button id="go-back">go back</button>
-        <button id="clear-score">clear Highscore</button>
+        <button id="go-back">GO BACK</button>
+        <button id="clear-score">CLEAR HIGH SCORE</button>
       </div>
     </div>
+
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
