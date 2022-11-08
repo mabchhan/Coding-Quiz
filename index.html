@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <title>Coding Quiz Challenge</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header" class="header" data-state="">
+      <a href="#" id="view-highscore">View Highscore</a>
+      <div class="time-remain">Time : <span id="countdown">40</span></div>
+    </header>
+
+    <!-- main -->
+    <div class="container">
+      <div id="start-quiz" class="main">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+          Try to answer the following code-related questions within the time
+          limit. Keep in mind that incorrect answer will penalize your
+          score/time by ten seconds!
+        </p>
+        <button id="start-btn" class="start-btn">Start Quiz</button>
+      </div>
+    </div>
+    <div class="question-section">
+      <p class="question-title"></p>
+      <div class="list-answers"></div>
+    </div>
+
+    <div id="form-done" class="hidden">
+      <p>All done!</p>
+      <p id="score">Your final score:</p>
+      <p>Enter Initial:</p>
+      <div>
+        <input type="text" id="input-name" placeholder="Your name" />
+        <button id="submit">submit</button>
+      </div>
+    </div>
+
+    <div id="highscore-section" class="hidden">
+      <p>High scores</p>
+      <p id="display-highscore">1. ab 22</p>
+      <div>
+        <button id="go-back">go back</button>
+        <button id="clear-score">clear Highscore</button>
+      </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
