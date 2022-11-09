@@ -22,6 +22,7 @@ var highScore = {
   score: 0,
 };
 
+var currentScore = 0;
 var finishAnswer = false;
 
 // function timer
@@ -39,7 +40,8 @@ function setTime() {
       questionSectionEl.classList.add("hidden");
       clearInterval(timerInterval);
       formDoneEl.classList.remove("hidden");
-      scoreEl.textContent = "Your final score: " + timeLeft;
+      // scoreEl.textContent = "Your final score: " + timeLeft;
+      scoreEl.textContent = "Your final score: " + currentScore;
     }
   }, 1000);
 }
@@ -69,6 +71,7 @@ gobackBtn.addEventListener("click", function () {
   timerEl.textContent = timeLeft;
   currentQuestionIndex = 0;
   finishAnswer = false;
+  currentScore = 0;
 });
 
 // submit button
@@ -77,17 +80,27 @@ submitBtn.addEventListener("click", function () {
   highscoreEl.classList.remove("hidden");
   console.log(highScore.score);
 
-  if (highScore.score < timeLeft || highScore.score === 0) {
-    highScore = {
-      name: inputEl.value,
-      score: timeLeft,
-    };
-    localStorage.setItem("highScore", JSON.stringify(highScore));
-  }
+  // if (highScore.score < timeLeft || highScore.score === 0) {
+  //   highScore = {
+  //     name: inputEl.value,
+  //     score: currentScore,
+  //   };
+  //   localStorage.setItem("highScore", JSON.stringify(highScore));
+  // }
+  // while (inputEl.value === "") {
+  //   alert("Please initial your name.");
+  // }
+
+  highScore = {
+    name: inputEl.value,
+    score: currentScore,
+  };
+  localStorage.setItem("highScore", JSON.stringify(highScore));
+
   displayhighscoreEl.textContent =
     "1. " + highScore.name + " " + highScore.score;
   inputEl.value = "";
-  console.log(highScore);
+  console.log(inputEl.textContent);
 });
 
 // function view high score
@@ -133,11 +146,11 @@ function showQuestion() {
     if (answer.correct) {
       button.dataset.correct = answer.correct;
     }
-    //button.addEventListener("click", selectAnswer);
+
     listAnswersEl.appendChild(button);
 
     row++;
-    console.log(answer.text);
+    // console.log(answer.text);
   });
 }
 
@@ -145,14 +158,17 @@ function showQuestion() {
 document.addEventListener("click", function (e) {
   // var createElementP = document.createElement("p");
   // var lineElement = document.createElement("hr");
+
   if (e.target && e.target.classList == "btn-answer") {
     const selectedButton = e.target;
 
-    console.log(selectedButton.dataset.correct);
+    // console.log(selectedButton.dataset.correct);
+
+    // when we click right answer
 
     if (selectedButton.dataset.correct) {
       currentQuestionIndex++;
-
+      currentScore += 5;
       // remove all previous question
       while (listAnswersEl.firstChild) {
         listAnswersEl.removeChild(listAnswersEl.lastChild);
@@ -214,8 +230,8 @@ var questions = [
   {
     question: "React is?",
     answers: [
-      { text: "Frontend", correct: true },
-      { text: "Backend", correct: false },
+      { text: "Front-End", correct: true },
+      { text: "Back-End", correct: false },
       { text: "Database", correct: false },
       { text: "Server", correct: false },
     ],
