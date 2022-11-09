@@ -36,4 +36,8 @@ GIVEN I am taking a code quiz
 
   - link to repo
 
+    - https://github.com/mabchhan/Coding-Quiz
+
   - link to deployed
+
+    - https://mabchhan.github.io/Coding-Quiz/

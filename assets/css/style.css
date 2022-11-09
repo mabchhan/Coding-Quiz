@@ -6,26 +6,31 @@
 
 body {
   font-family: sans-serif;
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
 }
 
 header {
-  display: flex;
-  /* width: 850px; */
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 90px;
+  width: 800px;
+  margin: 0 auto;
+  margin-bottom: 80px;
   padding: 20px;
 }
 
 header a {
   text-decoration: none;
+  cursor: pointer;
 }
 
+.nav-container {
+  /* width: 800px; */
+  display: flex;
+  justify-content: space-between;
+}
 .main {
   max-width: 800px;
   margin: 0 auto;
+  margin-bottom: 30px;
   padding: 20px;
   text-align: center;
   line-height: 1.5;
