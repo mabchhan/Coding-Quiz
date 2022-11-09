@@ -76,10 +76,6 @@ gobackBtn.addEventListener("click", function () {
 
 // submit button
 submitBtn.addEventListener("click", function () {
-  formDoneEl.classList.add("hidden");
-  highscoreEl.classList.remove("hidden");
-  console.log(highScore.score);
-
   // if (highScore.score < timeLeft || highScore.score === 0) {
   //   highScore = {
   //     name: inputEl.value,
@@ -87,10 +83,13 @@ submitBtn.addEventListener("click", function () {
   //   };
   //   localStorage.setItem("highScore", JSON.stringify(highScore));
   // }
-  // while (inputEl.value === "") {
-  //   alert("Please initial your name.");
-  // }
+  if (inputEl.value === "") {
+    alert("Please initial your name.");
+    return;
+  }
 
+  formDoneEl.classList.add("hidden");
+  highscoreEl.classList.remove("hidden");
   highScore = {
     name: inputEl.value,
     score: currentScore,
@@ -100,6 +99,7 @@ submitBtn.addEventListener("click", function () {
   displayhighscoreEl.textContent =
     "1. " + highScore.name + " " + highScore.score;
   inputEl.value = "";
+
   console.log(inputEl.textContent);
 });
 
