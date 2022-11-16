@@ -27,34 +27,36 @@
           limit. Keep in mind that incorrect answer will penalize your
           score/time by ten seconds!
         </p>
-        <button id="start-btn" class="start-btn">Start Quiz</button>
+        <button id="start-btn" class="btn start-btn">Start Quiz</button>
       </div>
     </div>
 
     <!-- question section -->
-    <div class="question-section hidden">
-      <p class="question-title"></p>
-      <div class="list-answers"></div>
-    </div>
-
-    <!-- finish question section -->
-    <div id="form-done" class="hidden">
-      <h3>All done!</h3>
-      <p id="score">Your final score:</p>
-      <p>Enter Initial:</p>
-      <div>
-        <input type="text" id="input-name" placeholder="Your name" />
-        <button id="submit">submit</button>
+    <div id="sub-container">
+      <div class="question-section hidden">
+        <p class="question-title"></p>
+        <div class="list-answers"></div>
       </div>
-    </div>
 
-    <!-- high score section -->
-    <div id="highscore-section" class="hidden">
-      <p>High scores:</p>
-      <p id="display-highscore"></p>
-      <div>
-        <button id="go-back">GO BACK</button>
-        <button id="clear-score">CLEAR HIGH SCORE</button>
+      <!-- finish question section -->
+      <div id="form-done" class="hidden">
+        <h3>All done!</h3>
+        <p id="score">Your final score:</p>
+        <p class="initial-label">Enter Initial:</p>
+        <div id="initial-section">
+          <input type="text" id="input-name" placeholder="Your name" />
+          <button id="submit" class="btn">submit</button>
+        </div>
+      </div>
+
+      <!-- high score section -->
+      <div id="highscore-section" class="hidden">
+        <p>High scores:</p>
+        <p id="display-highscore"></p>
+        <div>
+          <button id="go-back" class="btn">GO BACK</button>
+          <button id="clear-score" class="btn">CLEAR HIGH SCORE</button>
+        </div>
       </div>
     </div>
 
