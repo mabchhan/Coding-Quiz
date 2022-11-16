@@ -27,6 +27,7 @@ header a {
   display: flex;
   justify-content: space-between;
 }
+
 .main {
   max-width: 800px;
   margin: 0 auto;
@@ -34,7 +35,7 @@ header a {
   padding: 20px;
   text-align: center;
   line-height: 1.5;
-  background-color: #b73dc7;
+  background-color: rgb(183, 61, 199);
   color: white;
   border-radius: 5px;
 }
@@ -46,20 +47,26 @@ header a {
 
 .main p {
   margin-bottom: 15px;
+  padding: 0 50px;
 }
 
-.main button {
+/* set all button */
+.btn {
   cursor: pointer;
   border: none;
-  background-color: none;
-  padding: 5px;
-  font-size: 16px;
+  /* color: white; */
+  padding: 5px 10px;
   border-radius: 5px;
   text-align: center;
 }
 
-.main button:hover {
-  background-color: #aaa;
+/* start button */
+.main .btn {
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: rgb(213, 109, 226);
 }
 
 /* for hidden section */
@@ -67,13 +74,17 @@ header a {
   display: none;
 }
 
-.question-section {
-  max-width: 800px;
+#sub-container {
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
-
   line-height: 1.5;
+
+  padding: 20px 20px 40px 70px;
 }
+
+/* .question-section {
+  padding: 20px;
+} */
 
 .question-title {
   font-size: 22px;
@@ -82,28 +93,44 @@ header a {
 
 .list-answers {
   font-size: 12px;
+  padding-bottom: 20px;
 }
 
+/* answer button */
 .btn-answer {
+  cursor: pointer;
   margin-top: 8px;
   display: block;
   border: none;
-  border-radius: 2px;
-  background-color: #aaa;
-  padding: 5px;
+  border-radius: 5px;
+  background-color: #a75bb1;
+  padding: 7px;
+  color: white;
 }
 
 .btn-answer:hover {
-  background-color: #b73dc7;
+  background-color: #9a1eaa;
 }
 
-.question-section {
+/* .initial-label {
+  display: inline-block;
+} */
+#initial-section {
+  display: flex;
+  gap: 10px;
+}
+
+#go-back {
+  margin-right: 10px;
+}
+
+/* .question-section {
   width: 600px;
-  /* background-color: rgb(236, 232, 232); */
+   background-color: rgb(236, 232, 232); 
   border-radius: 5px;
-}
+} */
 
-#form-done {
+/* #form-done {
   width: 600px;
   margin: 0 auto;
   line-height: 1.5;
@@ -113,23 +140,23 @@ header a {
   width: 600px;
   margin: 0 auto;
   line-height: 1.5;
-}
+} */
 
 @media (max-width: 805px) {
+  .main,
   .header {
     width: 600px;
-  }
-  .main {
-    max-width: 600px;
   }
 }
 
 @media (max-width: 620px) {
+  body {
+    width: 800px;
+  }
+
+  .main,
   .header {
     width: 400px;
-  }
-  .main {
-    max-width: 400px;
   }
 
   .main h1 {
@@ -146,9 +173,9 @@ header a {
     font-size: 16px;
   }
 
-  #question-section,
+  /* #question-section,
   #form-done,
   #highscore-section {
     width: 400px;
-  }
+  } */
 }

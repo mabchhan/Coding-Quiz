@@ -56,10 +56,10 @@ viewHighScoreEl.addEventListener("click", function () {
 
 // clear high score in local storage
 clearscoreEl.addEventListener("click", function () {
-  highScore = {
-    name: "",
-    score: 0,
-  };
+  // highScore = {
+  //   name: "",
+  //   score: 0,
+  // };
   localStorage.removeItem("highScore");
 });
 
@@ -156,19 +156,18 @@ function showQuestion() {
 
 // when we click on each answer
 document.addEventListener("click", function (e) {
-  // var createElementP = document.createElement("p");
-  // var lineElement = document.createElement("hr");
+  var createElementP = document.createElement("p");
+  var lineElement = document.createElement("hr");
 
   if (e.target && e.target.classList == "btn-answer") {
     const selectedButton = e.target;
-
-    // console.log(selectedButton.dataset.correct);
 
     // when we click right answer
 
     if (selectedButton.dataset.correct) {
       currentQuestionIndex++;
       currentScore += 5;
+
       // remove all previous question
       while (listAnswersEl.firstChild) {
         listAnswersEl.removeChild(listAnswersEl.lastChild);
@@ -219,7 +218,7 @@ var questions = [
     ],
   },
   {
-    question: "What is the richest man in the world?",
+    question: "Who is the richest man in the world?",
     answers: [
       { text: "Elone Mask", correct: true },
       { text: "John", correct: false },
